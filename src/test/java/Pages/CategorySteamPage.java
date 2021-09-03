@@ -1,21 +1,15 @@
 package Pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
 
-public class CategorySteamPage extends BasePage {
-    private static final String PAGE_MENU_LOC = "//*[@class = 'popup_body popup_menu_twocol_new']";
+import static com.codeborne.selenide.Selenide.$x;
 
-    public CategorySteamPage(WebDriver webDriver) {
-        super(webDriver);
-    }
+public class CategorySteamPage {
+private SelenideElement pageMenu = $x("//*[@class = 'popup_body popup_menu_twocol_new']");
+
 
     public void waitUntilPageMenuVisible() {
-        WebDriverWait pageMenuWait = new WebDriverWait(webDriver, 10, 300);
-        WebElement pageMenu = webDriver.findElement(By.xpath(PAGE_MENU_LOC));
-        pageMenuWait.until(ExpectedConditions.visibilityOf(pageMenu));
+pageMenu.shouldBe(Condition.visible);
     }
 }

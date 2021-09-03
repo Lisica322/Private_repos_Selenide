@@ -1,31 +1,22 @@
 package Pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import com.codeborne.selenide.SelenideElement;
 
-public class NavigatorSteam extends BasePage {
-    private static final String GENRE_TAB_LOC = "#genre_tab";
-    private static final String STORE_AREA_LOC = "#store_nav_area";
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 
-    public NavigatorSteam(WebDriver webDriver) {
-        super(webDriver);
-    }
+public class NavigatorSteam {
+    private SelenideElement genreTab = $("#genre_tab");
+    private SelenideElement storeArea = $x("//*[@class = 'popup_menu_subheader popup_genre_expand_header responsive_hidden'][@data-genre-group = 'action']//*");
 
     public void checkStoreArea() {
-        WebDriverWait storeAreaWait = new WebDriverWait(webDriver, 10, 300);
-        WebElement storeArea = webDriver.findElement(By.cssSelector(STORE_AREA_LOC));
-        storeAreaWait.until(ExpectedConditions.visibilityOf(storeArea));
+       genreTab.click();
 
     }
 
     public void clickCategories() {
-        WebDriverWait categoriesElementWait = new WebDriverWait(webDriver, 10, 300);
-        WebElement categoriesElement = webDriver.findElement(By.cssSelector(GENRE_TAB_LOC));
-        categoriesElementWait.until(ExpectedConditions.visibilityOf(categoriesElement));
-        categoriesElement.click();
+
+        storeArea.click();
     }
 
 }

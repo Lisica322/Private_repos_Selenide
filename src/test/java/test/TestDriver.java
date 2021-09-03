@@ -8,19 +8,14 @@ public class TestDriver extends BaseTest {
 
     @Test
     public void theSteamTesting() {
-        NavigatorSteam navigatorSteam = new NavigatorSteam(webDriver);
-        CategorySteamPage categorySteamPage = new CategorySteamPage(webDriver);
-        Action action = new Action(webDriver);
-        LanguageSteam languageSteam = new LanguageSteam(webDriver);
-        FirstGame firstGame = new FirstGame(webDriver);
+        NavigatorSteam navigatorSteam = new NavigatorSteam();
+        CategorySteamPage categorySteamPage = new CategorySteamPage();
+        Action action = new Action();
 
-        languageSteam.checkTheLanguage();
-        languageSteam.clickLanguageMenu();
-        languageSteam.clickLanguageEnglish();
+        FirstGame firstGame = new FirstGame();
         navigatorSteam.checkStoreArea();
         navigatorSteam.clickCategories();
         categorySteamPage.waitUntilPageMenuVisible();
-        action.clickAction();
 
         try {
             Thread.sleep(2000);
