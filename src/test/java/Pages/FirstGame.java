@@ -16,7 +16,7 @@ import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class FirstGame {
-    private SelenideElement firstPage = $x("//*[@id='genre_large_cluster']/div[2]/div[1]");
+    private SelenideElement firstPage = $x("//*[@class = 'carousel_thumbs']/*[position()<2]");
     private ElementsCollection firstPrice = $$("//div[@class='discount_block  no_discount']/*/*");
     private ElementsCollection firstGame = $$("//div[@class='main']//div[@class='bg']");
     private SelenideElement firstGamePrice = $x("//div[@class='game_purchase_action']//div[@class='game_purchase_price price']");

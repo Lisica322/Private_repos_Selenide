@@ -2,7 +2,7 @@ package consts;
 
 public enum SteamsURL {
 
-    BASE_URL("https://store.steampowered.com/?l=english");
+    BASE_URL("https://store.steampowered.com/");
 private String url;
 
 SteamsURL(String url){
