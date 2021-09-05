@@ -1,28 +1,25 @@
 package Pages;
 
 import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.Assertions;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.List;
+import static com.codeborne.selenide.Selenide.*;
 
-import static com.codeborne.selenide.Selenide.$$;
-import static com.codeborne.selenide.Selenide.$x;
-
-public class FirstGame {
-    private SelenideElement firstPage = $x("//*[@class = 'carousel_thumbs']/*[position()<2]");
+public class GamePage {
+    private ElementsCollection firstPage = $$("//*[@class = 'carousel_thumbs']");
     private ElementsCollection firstPrice = $$("//div[@class='discount_block  no_discount']/*/*");
     private ElementsCollection firstGame = $$("//div[@class='main']//div[@class='bg']");
     private SelenideElement firstGamePrice = $x("//div[@class='game_purchase_action']//div[@class='game_purchase_price price']");
 
     public void clickFirstPageMenu() {
-        firstPage.click();
+        WebElement firstGamePageElementPrice =
+                firstPage
+                        .stream()
+                        .findFirst()
+                        .orElseThrow(() -> new AssertionError("Пустой список игр"));
+        firstGamePageElementPrice.click();
     }
 
     public void clickFirstGamePage() {

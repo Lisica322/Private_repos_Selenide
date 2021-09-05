@@ -12,20 +12,16 @@ public class TestDriver extends BaseTest {
         CategorySteamPage categorySteamPage = new CategorySteamPage();
         Action action = new Action();
 
-        FirstGame firstGame = new FirstGame();
+        GamePage gamePage = new GamePage();
         navigatorSteam.checkStoreArea();
         navigatorSteam.clickCategories();
         categorySteamPage.waitUntilPageMenuVisible();
 
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
         action.containsAction();
-        firstGame.clickFirstPageMenu();
-        firstGame.clickFirstGamePage();
-        firstGame.containsAction();
+        gamePage.clickFirstPageMenu();
+        gamePage.clickFirstGamePage();
+        gamePage.containsAction();
     }
 
 
